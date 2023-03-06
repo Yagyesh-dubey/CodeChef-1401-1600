@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t, n,i,a;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        string s;
+        map<string, int> mp;
+        map<string, int> :: iterator it;
+        vector<int>v;
+        for(i=0;i<3*n;i++){
+        cin>>s>>a;
+        if(mp.find(s) == mp.end())
+            mp.insert({s,a});
+            
+        else
+            mp[s]+=a;
+        }
+        for(it=mp.begin();it!=mp.end();it++){
+        v.push_back(it->second);
+        }
+        sort(v.begin(),v.end());
+        for(i=0;i<v.size();i++)
+        {
+            cout<<v[i]<<" ";
+        }
+        cout<<"\n";
+    }
+    return 0;
+}
