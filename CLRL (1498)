@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve(){
+    long int n,r;
+        cin>>n>>r;
+        bool ans = true;
+        long int al=0,au=1000000000;
+        for (int i =0;i<n;i++){
+            long int temp;
+            cin>>temp;
+            //cout<<"["<<al<<","<<au<<"] ";
+            if(temp>au || temp<al){
+                ans = false;
+            }else if(temp>=r){
+                au = temp;
+            }else if(temp<=r){
+                al = temp;
+            }
+        
+        }
+        if (ans){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+    return;
+}
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    solve();
+	return 0;
+}
