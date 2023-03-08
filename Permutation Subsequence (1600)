@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int MOD = 1000000007;
+
+int main()
+{
+
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        int n;
+        cin >> n;
+
+        vector<int> a(n);
+        for (auto& x : a) {
+            cin >> x;
+        }
+
+        map<int, int> cnt;
+        for (const auto& x : a) {
+            cnt[x]++;
+        }
+
+        long long ans = 0;
+        long long prev = 1;
+
+        for (int i = 1; i <= n; i++) {
+            long long temp = prev * cnt[i];
+            temp %= MOD;
+            ans += temp;
+            ans %= MOD;
+            prev = temp;
+        }
+
+        cout << ans << endl;;
+    }
+
+    return 0;
+}
