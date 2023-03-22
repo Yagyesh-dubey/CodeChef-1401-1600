@@ -1,0 +1,37 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t ;
+	cin>>t ;
+	while(t--){
+	    int n ; 
+	    cin>>n ; 
+	    int arr[n] ;
+	    bool flag = true ; 
+	    int i = 0 , j = n-1 , val = n  ;
+	    while(val>0){
+	        if(flag){
+	            arr[i] = val ;
+	            i++ ;
+	            val-- ; 
+	            flag = false ;
+	        }
+	        else{
+	            arr[j] = val ;
+	            j-- ; 
+	            val-- ;
+	            flag = true ;
+	        }
+	    }
+        if(n%2 != 0) arr[(n/2)] = 1 ;
+	    for(int i = 0 ; i<n ; i++){
+	        cout<<arr[i]<<" ";
+	    }
+	    cout<<endl;
+	    
+	}
+	return 0;
+}
