@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;cin>>t;
+	while(t--)
+	{
+	    int n;cin>>n;
+	    int ans = (n*n);
+	    if(n < 3) cout<<ans<<'\n';
+	    else
+	    {
+	        for(int i=3;i<=n;i+=2)
+	        {
+	            ans+=(pow((n-i)+1,2));
+	        }
+	        cout<<ans<<'\n';
+	    }
+	}
+	return 0;
+}
