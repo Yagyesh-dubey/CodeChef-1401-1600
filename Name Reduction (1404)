@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int cases;
+    cin >> cases;
+    int n;
+    while (cases--) {
+        string p1;
+        string p2;
+        cin >> p1 >> p2;
+        int n;
+        cin >> n;
+        string p = p1 + p2;
+        map<char, int> p_cnt;
+        for (int i = 0; i < p.size(); i++) {
+            p_cnt[p[i]]++;
+        }
+        string c;
+        for (int i = 0; i < n; i++) {
+            string chil;
+            cin >> chil;
+            c += chil;
+        }
+        for (auto it: c) {
+            p_cnt[it]--;
+        }
+        bool isVaild = true;
+        for (auto it: p_cnt) {
+            if (it.second < 0) {
+                isVaild = false;
+                break;
+            }
+        }
+        if (isVaild) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+	return 0;
+}
