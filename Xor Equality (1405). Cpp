@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define N 1000000007;
+
+long long binpow(long long a, long long b) {
+    if (b == 0)
+        return 1;
+    long long res = (binpow(a, b / 2))%N;
+    if (b % 2){
+        return (res * res * a)%N;
+    }
+    else{
+        return (res * res)%N;
+    }
+}
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int x;
+        cin>>x;
+        long long p=x-1;
+        cout<<binpow(2,p)<<endl;
+    }
+	return 0;
+}
