@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+ll mod = 1e9+7;
+
+vector<ll> mem({0,1});
+
+void solve() {
+  int N; cin >> N;
+  if(N <= mem.size()-1) {
+    cout << mem[N] << endl;
+    return;
+  }
+  mem.reserve(N+1);
+  ll val;
+  for(int n = mem.size(); n<=N; n++) {
+    val = mem.back() + n + mem.back() * n;
+    // value max ≃ 1e9*1e6=1e15 < 4e18 (very big long long int)
+    val %= mod;
+    mem.push_back(val);
+  }
+  cout << mem.back() << endl;
+}
+
+int main() {
+  ios_base::sync_with_stdio(false), cin.tie(nullptr);
+  int T; cin >> T;
+  while(T--)
+    solve();
+}
